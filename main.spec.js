@@ -69,7 +69,7 @@ describe('OOP in prototype style', function() {
 	});
 	describe('Свои классы на прототипах', function() {
 		// Почему не сработало ?
-		xit('Класс через прототип', function() {
+		it('Класс через прототип', function() {
 			function Animal(name) {
 				this.name = name;
 				this.speed = 0;
@@ -83,9 +83,13 @@ describe('OOP in prototype style', function() {
 			var animal = new Animal('Зверь');
 
 			expect(animal.speed).toBe(0);
-			expect(animal.run(5)).toBe('Зверь бежит, скорость 5'); //Undefined
-			expect(animal.run(5)).toBe('Зверь бежит, скорость 5'); //Undefined
-			expect(animal.stop()).toBe('Зверь стоит'); //Undefined
+			animal.run(5);
+			//expect(animal.run(5)).toBe('Зверь бежит, скорость 5'); //Undefined
+			expect(animal.speed).toBe(5);
+			animal.run(5);
+			//expect(animal.run(5)).toBe('Зверь бежит, скорость 5'); //Undefined
+			expect(animal.speed).toBe(10);
+			//expect(animal.stop()).toBe('Зверь стоит'); //Undefined
 
 		});
 	});
